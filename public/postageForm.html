@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Postage Submission Form</title>
+
+  <style>
+    body {
+       background-color: azure;
+    }
+
+    h1 {
+       font-family: Verdana, Geneva, sans-serif;
+       font-size: 25px;
+    }
+
+    h2 {
+       font-family: Verdana, Geneva, sans-serif;
+       font-size: 20px;
+    }
+
+    p {
+       font-family: Tahoma, Geneva, sans-serif;
+       font-size: 20px;
+    }
+  </style>
+
+  <script>
+     function changeWeightOptions() {
+
+        var z = document.getElementById("weight").options.length;
+
+        var x = document.getElementById("weight");
+        for (i=0; i < z; i++){
+           x.remove(x);
+        }
+
+        for (i=1; i < 4; i++) {
+           var y = document.createElement("OPTION");
+           var t = document.createTextNode(i);
+           y.appendChild(t);
+           document.getElementById("weight").appendChild(y);
+        }
+
+       var w = document.getElementById("type").selectedIndex;
+       var v = document.getElementsByTagName("option")[w].value;
+
+       if (v == "Letters (Metered)" || v == "Letters (Stamped)") {
+           
+           makeZoneInvisible();          
+ 
+           y = document.createElement("OPTION");
+           t = document.createTextNode("3.5");
+           y.appendChild(t);
+           document.getElementById("weight").appendChild(y);
+       }
+
+       if (v == "Large Envelopes (Flats)" || v == "First-Class Package Service--Retail") {
+           for (i=4; i < 14; i++) {
+              y = document.createElement("OPTION");
+              t = document.createTextNode(i);
+              y.appendChild(t);
+              document.getElementById("weight").appendChild(y);
+           }
+       }
+
+       if (v == "Large Envelopes (Flats)"){
+          makeZoneInvisible();
+       }
+
+       if (v == "First-Class Package Service--Retail"){
+          makeZoneVisible();
+       }
+   }
+
+   function makeZoneInvisible() {
+      document.getElementById("zone").style.visibility = "hidden";
+      document.getElementById("zoneLabel").style.visibility = "hidden";
+   }
+
+   function makeZoneVisible() {
+      document.getElementById("zone").style.visibility = "visible";
+      document.getElementById("zoneLabel").style.visibility = "visible";
+   }
+  
+  </script>
+
+</head>
+<body onload = "makeZoneInvisible()">
+  <h1>Enter Postage Details</h1>
+  <form action="/postage" method="get">
+    <label for="type">Select the postage type</label>
+    <select name="type" id="type" onchange="changeWeightOptions()">
+      <option>Letters (Stamped)</option>
+      <option>Letters (Metered)</option>
+      <option>Large Envelopes (Flats)</option>
+      <option>First-Class Package Service--Retail</option>
+    </select>
+
+    <br><br><label for="weight">Select the postage weight</label>
+    <select name="weight" id="weight">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>3.5</option>
+    </select>
+
+    <label for="zone" id="zoneLabel">Select the geographic zone</label>
+    <select name="zone" id="zone">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+    </select>
+
+    <br><br>
+    <input type="submit" value="Get Postage">
+
+    </form>
+</body>
+</html>
