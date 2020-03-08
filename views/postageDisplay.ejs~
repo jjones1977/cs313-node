@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Home Page</title>
+ <style>
+    body {
+       background-color: azure;
+    }
+
+    h1 {
+       font-family: Verdana, Geneva, sans-serif;
+       font-size: 25px;
+    }
+
+    h2 {
+       font-family: Verdana, Geneva, sans-serif;
+       font-size: 20px;
+    }
+
+    p {
+       font-family: Tahoma, Geneva, sans-serif;
+       font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+   <h1>Postage Information</h1>
+   <h2>You are sending a <%= type %> with the weight of <%= weight %>oz.</h2>
+   <h2>Your calculated postage is $<%= postage %>.</h2>
+</body>
+</html>

@@ -1,0 +1,119 @@
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 8000
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+    Last login: Sat Mar  7 20:44:16 on ttys000
+    jennis-air-2:~ jennijones$ cd cs313-node
+    jennis-air-2:cs313-node jennijones$ ls
+    hello.htmlnode-js-getting-started
+    jennis-air-2:cs313-node jennijones$ cd node-js-getting-started
+    jennis-air-2:node-js-getting-started jennijones$ ls
+    #form.html#hello.htmlpublic
+    #server.js#index.jsserver.js
+    Procfilenode_modulesserver.js~
+    README.mdpackage-lock.jsontest.js
+    app.jsonpackage.jsonviews
+    jennis-air-2:node-js-getting-started jennijones$ emacs server.js
+    jennis-air-2:node-js-getting-started jennijones$ cd public
+    jennis-air-2:public jennijones$ ls
+    lang-logo.pngpostageForm.htmlpostal_form.html
+    node.svgpostageForm.html~stylesheets
+    jennis-air-2:public jennijones$ emacs postageForm.html
+    jennis-air-2:public jennijones$ cd ..
+    jennis-air-2:node-js-getting-started jennijones$ node server.js
+The server is up and listening.
+^C
+    jennis-air-2:node-js-getting-started jennijones$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+    (use "git push" to publish your local commits)
+
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+	(use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   public/postageForm.html
+
+	Untracked files:
+	(use "git add <file>..." to include in what will be committed)
+
+	    #form.html#
+	    #server.js#
+	    public/postageForm.html~
+	    public/postal_form.html
+	    server.js~
+	    views/postageDisplay.ejs~
+
+	    no changes added to commit (use "git add" and/or "git commit -a")
+	    jennis-air-2:node-js-getting-started jennijones$ git add public/postageForm.html
+	jennis-air-2:node-js-getting-started jennijones$ git commit -m "added postage page"
+[master 9b2c72b] added postage page
+	1 file changed, 1 insertion(+), 1 deletion(-)
+	jennis-air-2:node-js-getting-started jennijones$ git push heroku master
+	Counting objects: 4, done.
+Delta compression using up to 4 threads.
+	Compressing objects: 100% (4/4), done.
+	Writing objects: 100% (4/4), 356 bytes | 356.00 KiB/s, done.
+	Total 4 (delta 3), reused 0 (delta 0)
+	remote: Compressing source files... done.
+	remote: Building source:
+	remote: 
+	    remote: -----> Node.js app detected
+		remote:        
+		remote: -----> Creating runtime environment
+		    remote:        
+		    remote:        NPM_CONFIG_LOGLEVEL=error
+	remote:        NODE_ENV=production
+	remote:        NODE_MODULES_CACHE=true
+	remote:        NODE_VERBOSE=false
+	remote:        
+	remote: -----> Installing binaries
+	    remote:        engines.node (package.json):  12.x
+	remote:        engines.npm (package.json):   unspecified (use default)
+	remote:        
+	remote:        Resolving node version 12.x...
+	remote:        Downloading and installing node 12.16.1...
+	remote:        Using default npm version: 6.13.4
+	remote:        
+	remote: -----> Restoring cache
+	    remote:        - node_modules
+	remote:        
+	remote: -----> Installing dependencies
+	    remote:        Installing node modules (package.json + package-lock)
+		remote:        audited 319 packages in 2.93s
+	remote:        found 0 vulnerabilities
+	remote:        
+	remote:        
+	    remote: -----> Build
+		remote:        
+		remote: -----> Caching build
+		    remote:        - node_modules
+	remote:        
+	remote: -----> Pruning devDependencies
+	    remote:        removed 82 packages and audited 144 packages in 1.639s
+	remote:        found 0 vulnerabilities
+	remote:        
+	remote:        
+	    remote: -----> Build succeeded!
+		remote: -----> Discovering process types
+		remote:        Procfile declares types -> web
+	remote: 
+	remote: -----> Compressing...
+	    remote:        Done: 22.9M
+	remote: -----> Launching...
+	remote:        Released v7
+	remote:        https://nameless-island-74364.herokuapp.com/ deployed to Heroku
+	remote: 
+	    remote: Verifying deploy... done.
+	To https://git.heroku.com/nameless-island-74364.git
+   21d000f..9b2c72b  master -> master
+       jennis-air-2:node-js-getting-started jennijones$ ls
+#form.html#
