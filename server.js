@@ -1,15 +1,15 @@
+const path = require('path');
 var express = require('express');
-const path = require('path')
 var app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
-app.use(express.static(__dirname, 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('views', __dirname + 'views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.listen(8000, function() {
-	console.log("The server is up and listening.");
+app.listen(port, function() {
+	console.log("The server is up and listening.", port);
 });
 
 app.get('/', handleRootRequest);
