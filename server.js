@@ -30,7 +30,7 @@ app.get('/postage', function(req, res) {
 
     var params = {type: type, weight: weight, postage: postage};
 
-    res.render("postageDisplay", params);   
+    res.render("views/postageDisplay", params);   
 });
 
 function returnPostageType (req, res) {
