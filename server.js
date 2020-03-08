@@ -5,7 +5,7 @@ const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set("views", "views");
+app.set('views', __dirname + '/views');
 app.set("view engine", "ejs");
 
 app.listen(8000, function() {
