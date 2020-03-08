@@ -1,18 +1,18 @@
 const path = require('path');
-var express = require("express");
+var express = require('express');
 var app = express();
 const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('views', __dirname + '/views');
-app.set("view engine", "ejs");
+app.set('view engine', 'ejs');
 
 app.listen(8000, function() {
 	console.log("The server is up and listening.");
 });
 
-app.get("/", handleRootRequest);
+app.get('/', handleRootRequest);
 
 function handleRootRequest(req, res) {
     console.log("Received a request for /");
@@ -22,7 +22,7 @@ function handleRootRequest(req, res) {
 
 }
 
-app.get("/postage", function(req, res) {
+app.get('/postage', function(req, res) {
     var type = returnPostageType(req, res);
     var weight = returnPostageWeight(req, res);
     var zone = returnZone(req, res);
